@@ -9,8 +9,8 @@ fn main(){
     color_name(Color::Blue);
 }
 
-fn color_name(passed_color: Color){
-    match passed_color{
+fn color_name(color: Color){
+    match color{
         Color::Blue=>println!("It's Blue"), 
         Color::Dark=>println!("It's Dark"), 
         Color::Green=>println!("It's Green"), 
