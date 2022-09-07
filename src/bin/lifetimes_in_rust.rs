@@ -44,6 +44,16 @@ struct YoungPeople<'a>{
     inner: Vec<&'a IdCard>
 }
 
+impl<'a> YoungPeople<'a>{
+    fn living_in_fooville(&self) -> Self{
+        Self{
+            inner: self.inner.iter()
+            .filter(|id| id.city == City::Fooville)
+            .map(|id| *id).collect(), // mapping with * will cause the borrow to disappear
+        }
+    }
+}
+
 fn main(){
     let ids = new_ids();
     let young_gen = YoungPeople{
@@ -53,8 +63,13 @@ fn main(){
     for id in ids.inner.iter(){
         println!("{:?}", id);
     }
-    println!("Young People");
+    println!("\nYoung People");
     for id in young_gen.inner.iter(){
+        println!("{:?}", id);
+    }
+
+    println!("\nYoung People Living in foovile");
+    for id in young_gen.living_in_fooville().inner.iter(){
         println!("{:?}", id);
     }
 }
