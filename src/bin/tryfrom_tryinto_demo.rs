@@ -47,10 +47,10 @@ impl TryFrom<&str> for Rgb{
 //     fn from(err: std::num::ParseIntError) -> Self{
 //         Self::ParseError(err)
 //     }
-// }
+// } //This impl not needed when we use #[from] macro in enum RgbError
 
 fn main() {
-    // Use `cargo test --bin a37` to test your implementation
+    // Use `cargo test --bin tryfrom_tryinto_demo` to test your implementation
 }
 
 #[cfg(test)]
